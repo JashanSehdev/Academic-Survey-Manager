@@ -9,7 +9,7 @@ import {
 
 type ControlFieldProp<T extends FieldValues> = {
   name: FieldPath<T>;
-  type?: "text" | "email" | "password" | "number";
+  type?: "text" | "email" | "password" | "number" | "datetime-local" | "date";
   multiline?: boolean;
   label?: string;
   placeholder?: string;

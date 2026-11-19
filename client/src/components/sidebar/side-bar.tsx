@@ -13,7 +13,6 @@ import {
   useTheme,
   Stack,
   Avatar,
-  Typography,
   ListItem,
   ListItemAvatar,
   Button,
@@ -66,7 +65,7 @@ export default function Sidebar() {
       <Stack sx={{flex: 1}}>
         <Toolbar>
           <RunCircleIcon />
-          <h3>My Application</h3>
+          <h3>Lime Survey</h3>
         </Toolbar>
 
         <List>

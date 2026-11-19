@@ -22,24 +22,22 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import GroupIcon from "@mui/icons-material/Group";
-import SettingsIcon from "@mui/icons-material/Settings";
 import styles from "./admin-sidebar.module.css";
 import { useState } from "react";
 import Link from "next/link";
 import RunCircleIcon from "@mui/icons-material/RunCircle";
-import PersonIcon from "@mui/icons-material/Person";
 import { useAppDispatch, useAppSelector } from "@/features/store";
 import LoginIcon from "@mui/icons-material/Login";
 import { useRouter } from "next/navigation";
 import { logoutMeAsync } from "@/features/auth/handle-auth/auth.action";
+import HomeFilledIcon from '@mui/icons-material/HomeFilled';
 
 const drawerWidth = 250;
 
 const menuItems = [
-  { title: "Profile", path: "/profile", icon: <PersonIcon /> },
-  { title: "Dashboard", path: "/dashboard", icon: <DashboardIcon /> },
-  { title: "users", path: "/admin/users", icon: <GroupIcon /> },
-  { title: "Settings", path: "/settings", icon: <SettingsIcon /> },
+  { title: "Home", path: "/", icon: <HomeFilledIcon /> },
+  { title: "Dashboard", path: "/admin", icon: <DashboardIcon /> },
+  { title: "Create Survey", path: "/admin/create-survey", icon: <GroupIcon /> },
 ];
 
 export default function Sidebar() {
@@ -64,7 +62,7 @@ export default function Sidebar() {
       <Stack sx={{ flex: 1 }}>
         <Toolbar>
           <RunCircleIcon />
-          <h3>My Application</h3>
+          <h3>Lime Survey</h3>
         </Toolbar>
 
         <List>

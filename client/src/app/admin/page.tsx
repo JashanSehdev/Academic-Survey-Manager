@@ -1,6 +1,7 @@
 import DisplayCard from "@/components/admin/dashboard/display-cards/display-card";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import styles from "./admin-dashboard.module.css";
+import { ListCreatedSurvey } from "@/components/list-created-survey/list-created-survey";
 
 export default function AdminDashboard() {
   return (
@@ -14,7 +15,7 @@ export default function AdminDashboard() {
         </Typography>
       </Box>
       <Stack>
-        <DisplayCard />
+        <ListCreatedSurvey />
       </Stack>
     </Container>
   );

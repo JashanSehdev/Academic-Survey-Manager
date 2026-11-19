@@ -1,6 +1,7 @@
 "use client";
 
 import { getErrorMessage } from "@/api/api";
+import { RoleEnum } from "@/enum/user.enum";
 import { loginUserAsync } from "@/features/auth/handle-auth/auth.action";
 import { useAppDispatch } from "@/features/store";
 import { useRouter } from "next/navigation";
@@ -15,18 +16,21 @@ export default function useLogin() {
   async function login(identifier: string, password: string) {
     try {
       setLoading(true);
-      await dispatch(loginUserAsync({ identifier, password })).unwrap();
+      const result = await dispatch(
+        loginUserAsync({ identifier, password }),
+      ).unwrap();
       enqueueSnackbar("Login Successful", { variant: "success" });
-      router.replace("/");
+      if (result.role === RoleEnum.ADMIN) {
+        router.push("/admin/create-survey");
+      } else {
+        router.push("/"); 
+      }
     } catch (error) {
       enqueueSnackbar(getErrorMessage(error), { variant: "error" });
     } finally {
       setLoading(false);
     }
   }
-
-
-
 
   return { login, loading };
 }

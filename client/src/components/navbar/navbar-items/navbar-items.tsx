@@ -9,6 +9,9 @@ import Link from "next/link";
 import HomeIcon from '@mui/icons-material/Home';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { useAppSelector } from "@/features/store";
+import { useEffect } from "react";
+import { RoleEnum } from "@/enum/user.enum";
+import { useRouter } from "next/navigation";
 
 
 const adminItems = [
@@ -23,15 +26,11 @@ const navItems = [
     label: "HOME",
     href: "/",
   },
-  {
-    icon : <AssignmentIcon/>,
-    label : "TASKS",
-    href : '/tasks'
-  },
 
 ];
 export default function NavbarItems() {
   const user = useAppSelector((state) => state.auth.user)
+
   return (
     <Stack className={styles.container} direction={'row'}>
 

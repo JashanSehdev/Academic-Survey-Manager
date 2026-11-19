@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import styles from "./login.module.css";
 import GoogleAuthButton from "@/components/auth/google-auth-button/google-auth";
 import Link from "next/link";
-import useLogin from "@/hooks/useLogin";
+import useLogin from "@/hooks/use_login";
 import { InputFields, LoginInput, loginSchema } from "./login.type";
 import ControlField from "@/components/form/controller-field/control-field";
 
@@ -36,6 +36,10 @@ export default function LoginForm() {
 
   const { control, handleSubmit } = useForm<LoginInput>({
     resolver: zodResolver(loginSchema),
+    defaultValues :{
+      identifier :"",
+      password : ""
+    }
   });
 
   const onSubmit: SubmitHandler<LoginInput> = async (data: LoginInput) => {
