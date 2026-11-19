@@ -1,0 +1,11 @@
+services:
+  client:
+    build: .
+    container_name: next-frontend
+    restart: unless-stopped
+    env_file:
+      - .env.local
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
